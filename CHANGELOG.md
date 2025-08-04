@@ -5,6 +5,37 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.9] - 2025-08-04
+
+### 🐛 Fixed
+- **Success Notification**: Success message now automatically disappears after 3 seconds
+- **Status Bar Integration**: Changed from persistent dialog to auto-dismissing status bar message
+- **User Experience**: Cleaner notification flow without manual dismissal required
+
+## [0.0.8] - 2025-08-04
+
+### 🚀 Improved
+- **User Experience**: Removed unnecessary "Open File" confirmation dialog after conversion
+- **Simplified Workflow**: Conversion now shows success message without additional prompts
+- **Cleaner Interface**: Streamlined conversion process for better user experience
+
+### 🧹 Housekeeping
+- Cleaned up temporary diagnostic tools and test files
+- Removed old .vsix package files
+- Project cleanup for better maintainability
+
+## [0.0.7] - 2025-08-04
+
+### 🐛 Fixed
+- **Progress Notification**: Fixed progress notification not disappearing automatically after conversion completion
+- **User Experience**: Progress dialog now closes after 500ms delay when conversion completes
+- **UI Improvement**: Cleaner user experience with proper progress notification handling
+
+### 🔧 Technical Changes
+- Added setTimeout delay in progress callback for better UX
+- Restructured progress notification flow to ensure proper closure
+- Improved async function handling in extension activation
+
 ## [0.0.6] - 2025-08-04 
 
 ### 🐛 Fixed
