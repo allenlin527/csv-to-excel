@@ -5,6 +5,17 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.5] - 2025-08-04
+
+### 🐛 Fixed
+- **File Opening**: Fixed "File seems to be binary" error when opening converted Excel files
+- **User Experience**: Excel files now open with system default application (Excel/Numbers)
+- **Error Handling**: Improved handling of binary file formats
+
+### 🔧 Technical Changes
+- Changed from `openTextDocument` to `vscode.open` command for Excel files
+- Proper binary file handling for .xlsx format
+
 ## [0.0.4] - 2025-08-04
 
 ### ✨ Enhanced

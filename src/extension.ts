@@ -42,8 +42,8 @@ export function activate(context: vscode.ExtensionContext) {
                 );
                 
                 if (action === "Open File") {
-                    const document = await vscode.workspace.openTextDocument(vscode.Uri.file(outputPath));
-                    await vscode.window.showTextDocument(document);
+                    // 使用系統預設程式開啟 Excel 檔案
+                    await vscode.commands.executeCommand('vscode.open', vscode.Uri.file(outputPath));
                 } else if (action === "Show in Explorer") {
                     vscode.commands.executeCommand('revealFileInOS', vscode.Uri.file(outputPath));
                 }
