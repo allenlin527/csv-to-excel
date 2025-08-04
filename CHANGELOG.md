@@ -5,6 +5,19 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.6] - 2025-08-04 
+
+### 🐛 Fixed
+- **CSV Parsing**: Fixed handling of column headers with dots (e.g., "Subject.Name")
+- **Data Structure**: Prevented nested object creation from dotted column names
+- **Excel Generation**: Ensured proper flat data structure for Excel output
+- **Compatibility**: Improved support for complex CSV header formats
+
+### 🔧 Technical Changes
+- Added `flatKeys: true` option to csvtojson parser
+- Fixed column header parsing to preserve original names with special characters
+- Enhanced CSV to Excel conversion reliability
+
 ## [0.0.5] - 2025-08-04
 
 ### 🐛 Fixed

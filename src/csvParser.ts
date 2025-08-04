@@ -67,7 +67,8 @@ export class CsvParser {
             const jsonArray = await csvtojson({
                 delimiter: delimiter,
                 trim: true,
-                checkType: true
+                checkType: true,
+                flatKeys: true  // 防止嵌套物件，保持標題為字串
             }).fromString(content);
             
             // 取得標題
