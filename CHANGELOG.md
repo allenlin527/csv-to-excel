@@ -5,6 +5,18 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.2] - 2025-08-04
+
+### 🐛 Fixed
+- **Command Registration**: Fixed 'csvToExcel.convert' command not found error
+- **Activation Events**: Updated to modern VSCode extension activation pattern
+- **Extension Loading**: Improved extension loading reliability
+
+### 🔧 Technical Changes
+- Changed `activationEvents` from `["onCommand:csvToExcel.convert"]` to `[]`
+- Relies on automatic activation based on `contributes` configuration
+- Follows current VSCode extension best practices
+
 ## [0.0.1] - 2025-08-04
 
 ### 🎉 Initial Release
