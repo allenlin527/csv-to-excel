@@ -1,0 +1,23 @@
+# Source files
+src/
+test-data/
+*.md
+!README.md
+!CHANGELOG.md
+
+# Development files
+.vscode/
+tsconfig.json
+node_modules/
+.git/
+.gitignore
+
+# Build artifacts
+**/*.map
+**/*.ts
+
+# Technical documentation (keep for development only)
+CODE_ARCHITECTURE.md
+PROJECT_PLAN.md
+TECHNICAL_ANALYSIS.md
+TESTING_STRATEGY.md

@@ -1,14 +1,36 @@
 {
   "name": "csv-to-excel-converter",
   "displayName": "CSV to Excel Converter",
-  "description": "Convert CSV files to Excel format with right-click menu",
+  "description": "Convert CSV files to Excel format with right-click menu - Smart encoding detection, auto-formatting, and seamless integration",
   "version": "0.0.1",
+  "publisher": "YOUR_PUBLISHER_NAME",
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Data Science",
+    "Formatters"
   ],
+  "keywords": [
+    "csv",
+    "excel",
+    "xlsx",
+    "converter",
+    "file conversion",
+    "data",
+    "spreadsheet",
+    "format"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/YOUR_USERNAME/csv-to-excel-converter#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/csv-to-excel-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/csv-to-excel-converter/issues"
+  },
   "activationEvents": [
     "*"
   ],

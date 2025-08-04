@@ -1,0 +1,56 @@
+# Change Log
+
+All notable changes to the "CSV to Excel Converter" extension will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.0.1] - 2025-08-04
+
+### 🎉 Initial Release
+
+#### Added
+- **Core Functionality**
+  - CSV to Excel (.xlsx) conversion with right-click context menu
+  - Command palette integration for conversion
+  - Smart encoding detection (UTF-8, Big5, GBK, ISO-8859-1)
+  - Automatic delimiter detection (comma, semicolon, tab, pipe)
+
+- **Excel Formatting Features**
+  - Automatic header styling with bold text and background color
+  - Auto-fit column widths for optimal readability
+  - Data type preservation (numbers, dates, text)
+
+- **User Experience**
+  - Progress indication during conversion process
+  - User-friendly error messages and handling
+  - File opening options after successful conversion
+  - Cross-platform compatibility (Windows, macOS, Linux)
+
+- **Technical Features**
+  - TypeScript implementation for type safety
+  - Modular architecture with separate CSV parsing and Excel generation
+  - Comprehensive error handling
+  - Memory-efficient processing for large files
+
+#### Technical Details
+- Built with ExcelJS for Excel file generation
+- Uses csvtojson for CSV parsing with automatic type detection
+- Implements chardet for character encoding detection
+- iconv-lite for encoding conversion support
+
+### 🚀 Features Highlight
+- **One-click conversion**: Right-click any CSV file and select "Convert to Excel"
+- **Intelligent parsing**: Automatically detects file encoding and delimiter
+- **Professional output**: Creates properly formatted Excel files with styled headers
+- **No configuration required**: Works out of the box with sensible defaults
+
+### 📋 Requirements
+- Visual Studio Code 1.74.0 or higher
+- No additional dependencies required
+
+### 🔄 Future Plans
+- Batch conversion support for multiple files
+- Custom formatting options
+- CSV preview functionality
+- Configuration settings for advanced users

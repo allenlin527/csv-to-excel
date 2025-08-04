@@ -3,8 +3,6 @@ import { CsvParser } from './csvParser';
 import { ExcelGenerator } from './excelGenerator';
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('CSV to Excel extension is now active!');
-    
     const csvParser = new CsvParser();
     const excelGenerator = new ExcelGenerator();
     
