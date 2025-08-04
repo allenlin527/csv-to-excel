@@ -5,6 +5,8 @@
 
 A powerful VSCode extension that converts CSV files to Excel (.xlsx) format with just a right-click. Perfect for developers and data analysts who need quick and reliable CSV to Excel conversion.
 
+> **Note**: Microsoft Excel is a trademark of Microsoft Corporation. This extension is not affiliated with or endorsed by Microsoft Corporation.
+
 ## ✨ Features
 
 - **🖱️ Right-click Integration**: Convert CSV files directly from the file explorer
@@ -82,6 +84,14 @@ We welcome contributions! Please feel free to submit issues and enhancement requ
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Third-Party Libraries
+
+This extension uses several open-source libraries. See [THIRD-PARTY-LICENSES.md](THIRD-PARTY-LICENSES.md) for detailed license information.
+
+### Trademarks
+
+Microsoft Excel is a trademark of Microsoft Corporation. This extension is not affiliated with or endorsed by Microsoft Corporation.
 
 ## 📞 Support
 

@@ -4,6 +4,7 @@ test-data/
 *.md
 !README.md
 !CHANGELOG.md
+!THIRD-PARTY-LICENSES.md
 
 # Development files
 .vscode/
