@@ -1,7 +1,7 @@
 # CSV to Excel Converter
 
-[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/csv-to-excel-converter?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=csv-to-excel-converter)
-[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/csv-to-excel-converter?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=csv-to-excel-converter)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/bigintech.csv-to-excel-converter?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=bigintech.csv-to-excel-converter)
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/bigintech.csv-to-excel-converter?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=bigintech.csv-to-excel-converter)
 
 A powerful VSCode extension that converts CSV files to Excel (.xlsx) format with just a right-click. Perfect for developers and data analysts who need quick and reliable CSV to Excel conversion.
 
