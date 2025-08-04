@@ -3,7 +3,7 @@
   "displayName": "CSV to Excel Converter",
   "description": "Convert CSV files to Excel format with right-click menu - Smart encoding detection, auto-formatting, and seamless integration",
   "version": "0.0.1",
-  "publisher": "YOUR_PUBLISHER_NAME",
+  "publisher": "allenlin527",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -23,13 +23,13 @@
     "format"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/YOUR_USERNAME/csv-to-excel-converter#readme",
+  "homepage": "https://github.com/allenlin527/csv-to-excel-converter#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/csv-to-excel-converter.git"
+    "url": "https://github.com/allenlin527/csv-to-excel-converter.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/csv-to-excel-converter/issues"
+    "url": "https://github.com/allenlin527/csv-to-excel-converter/issues"
   },
   "activationEvents": [
     "*"

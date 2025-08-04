@@ -5,7 +5,7 @@ Thank you for your interest in contributing to this project! 🎉
 ## 🤝 How to Contribute
 
 ### Reporting Bugs
-- Use the [GitHub Issues](https://github.com/YOUR_USERNAME/csv-to-excel-converter/issues) page
+- Use the [GitHub Issues](https://github.com/allenlin527/csv-to-excel-converter/issues) page
 - Include detailed steps to reproduce the issue
 - Mention your VSCode version and operating system
 
@@ -48,7 +48,7 @@ Thank you for your interest in contributing to this project! 🎉
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/csv-to-excel-converter.git
+   git clone https://github.com/allenlin527/csv-to-excel-converter.git
    cd csv-to-excel-converter
    ```
 

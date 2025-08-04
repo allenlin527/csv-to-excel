@@ -96,8 +96,8 @@ Microsoft Excel is a trademark of Microsoft Corporation. This extension is not a
 ## 📞 Support
 
 If you encounter any issues or have suggestions, please:
-- Create an issue on our [GitHub repository](https://github.com/username/csv-to-excel-converter/issues)
-- Check our [FAQ section](https://github.com/username/csv-to-excel-converter/wiki/FAQ)
+- Create an issue on our [GitHub repository](https://github.com/allenlin527/csv-to-excel-converter/issues)
+- Check our [FAQ section](https://github.com/allenlin527/csv-to-excel-converter/wiki/FAQ)
 
 ---
 
