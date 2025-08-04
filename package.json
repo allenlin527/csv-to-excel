@@ -10,7 +10,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:csv"
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {
