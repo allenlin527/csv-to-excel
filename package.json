@@ -32,7 +32,7 @@
     "url": "https://github.com/allenlin527/csv-to-excel/issues"
   },
   "activationEvents": [
-    "*"
+    "onCommand:csvToExcel.convert"
   ],
   "main": "./out/extension.js",
   "contributes": {
