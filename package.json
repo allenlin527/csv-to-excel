@@ -2,7 +2,7 @@
   "name": "csv-to-excel-converter",
   "displayName": "CSV to Excel Converter",
   "description": "Convert CSV files to Excel format with right-click menu - Smart encoding detection, auto-formatting, and seamless integration",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "bigintech",
   "engines": {
     "vscode": "^1.74.0"
@@ -31,7 +31,9 @@
   "bugs": {
     "url": "https://github.com/allenlin527/csv-to-excel/issues"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [

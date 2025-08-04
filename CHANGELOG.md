@@ -5,6 +5,17 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.4] - 2025-08-04
+
+### ✨ Enhanced
+- **User Experience**: Extension now activates automatically after VSCode startup
+- **Immediate Availability**: Right-click menu and commands ready without manual trigger
+- **Performance**: Uses `onStartupFinished` for optimal startup performance
+
+### 🔧 Technical Changes
+- Changed activation from manual trigger to automatic startup activation
+- Improved user experience for immediate functionality access
+
 ## [0.0.3] - 2025-08-04
 
 ### 🐛 Fixed
