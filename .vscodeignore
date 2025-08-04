@@ -9,7 +9,6 @@ test-data/
 # Development files
 .vscode/
 tsconfig.json
-node_modules/
 .git/
 .gitignore
 
@@ -22,3 +21,7 @@ CODE_ARCHITECTURE.md
 PROJECT_PLAN.md
 TECHNICAL_ANALYSIS.md
 TESTING_STRATEGY.md
+
+# Keep only production dependencies
+node_modules/@types/
+node_modules/.bin/

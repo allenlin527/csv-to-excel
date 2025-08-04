@@ -5,6 +5,17 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.3] - 2025-08-04
+
+### 🐛 Fixed
+- **Critical**: Fixed extension failing to activate due to missing dependencies
+- **Packaging**: Corrected .vscodeignore to include required node_modules
+- **Dependencies**: Ensured ExcelJS, csvtojson, chardet, and iconv-lite are bundled
+
+### 🔧 Technical Changes
+- Updated .vscodeignore to exclude only development dependencies
+- Fixed "Activating..." indefinite state issue
+
 ## [0.0.2] - 2025-08-04
 
 ### 🐛 Fixed
