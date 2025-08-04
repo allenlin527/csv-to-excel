@@ -23,13 +23,13 @@
     "format"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/allenlin527/csv-to-excel-converter#readme",
+  "homepage": "https://github.com/allenlin527/csv-to-excel#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/allenlin527/csv-to-excel-converter.git"
+    "url": "https://github.com/allenlin527/csv-to-excel.git"
   },
   "bugs": {
-    "url": "https://github.com/allenlin527/csv-to-excel-converter/issues"
+    "url": "https://github.com/allenlin527/csv-to-excel/issues"
   },
   "activationEvents": [
     "*"
