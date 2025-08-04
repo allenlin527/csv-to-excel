@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import * as path from 'path';
 import { CsvParser } from './csvParser';
 import { ExcelGenerator } from './excelGenerator';
 
@@ -15,7 +16,8 @@ export function activate(context: vscode.ExtensionContext) {
                 return;
             }
             
-            // 顯示進度
+            // 顯示進度並執行轉換
+            let outputPath: string = '';
             await vscode.window.withProgress({
                 location: vscode.ProgressLocation.Notification,
                 title: "Converting CSV to Excel",
@@ -30,24 +32,19 @@ export function activate(context: vscode.ExtensionContext) {
                 progress.report({ increment: 50, message: "Generating Excel file..." });
                 
                 // 生成Excel
-                const outputPath = await excelGenerator.generateExcel(csvResult, uri.fsPath);
+                outputPath = await excelGenerator.generateExcel(csvResult, uri.fsPath);
                 
                 progress.report({ increment: 100, message: "Conversion completed!" });
                 
-                // 顯示成功訊息並詢問是否開啟檔案
-                const action = await vscode.window.showInformationMessage(
-                    `CSV file converted successfully to: ${outputPath}`,
-                    "Open File",
-                    "Show in Explorer"
-                );
-                
-                if (action === "Open File") {
-                    // 使用系統預設程式開啟 Excel 檔案
-                    await vscode.commands.executeCommand('vscode.open', vscode.Uri.file(outputPath));
-                } else if (action === "Show in Explorer") {
-                    vscode.commands.executeCommand('revealFileInOS', vscode.Uri.file(outputPath));
-                }
+                // 短暫延遲讓用戶看到完成訊息，然後自動關閉進度
+                await new Promise(resolve => setTimeout(resolve, 500));
             });
+            
+            // 顯示會自動消失的成功通知
+            vscode.window.setStatusBarMessage(
+                `✅ CSV converted to: ${path.basename(outputPath)}`,
+                3000 // 3秒後自動消失
+            );
             
         } catch (error) {
             vscode.window.showErrorMessage(`Conversion failed: ${error}`);
