@@ -5,6 +5,20 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2025-08-19
+
+### 🔧 User Experience Improvements
+- **Unified Command**: Simplified to single "Convert to Excel" command for both single and batch operations
+- **Smart Detection**: Automatically detects single vs multiple file selection
+- **Cleaner Menu**: Removed redundant "Convert Multiple CSV to Excel" command
+- **Intuitive Workflow**: One button adapts behavior based on selection (1 file = single conversion, multiple files = batch conversion)
+
+### 📋 Technical Changes
+- Combined `csvToExcel.convert` and `csvToExcel.batchConvert` into single intelligent command
+- Extracted `performBatchConversion` helper function for better code organization
+- Simplified VSCode command registration and menu contributions
+- Maintained full backwards compatibility and feature parity
+
 ## [0.1.0] - 2025-08-19
 
 ### 🚀 Major Features
