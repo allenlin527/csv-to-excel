@@ -5,6 +5,44 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0] - 2025-08-19
+
+### 🚀 Major Features
+- **Batch Conversion**: Convert multiple CSV files to Excel in one operation
+- **Smart Multi-File Selection**: Select multiple CSV files and convert them all at once
+- **Progress Tracking**: Real-time progress display showing current file being processed
+- **Comprehensive Results**: Detailed success/failure reporting for batch operations
+
+### 🔧 Core Optimizations  
+- **Non-Blocking Operations**: Fixed synchronous file operations that could freeze VSCode
+- **Memory Efficiency**: Converted `fs.readFileSync` to async `fs.promises.readFile`
+- **Code Quality**: Removed 28 lines of unused `formatCellValue` function
+- **Error Handling**: Simplified error processing without unnecessary type checking
+
+### 🧪 Testing Infrastructure
+- **Jest Integration**: Full testing framework setup with TypeScript support
+- **100% Core Coverage**: Complete test coverage for `csvParser.ts` and `excelGenerator.ts`
+- **15 Test Cases**: Comprehensive edge case testing including:
+  - Empty files and encoding detection failures
+  - Delimiter detection edge cases  
+  - Custom output paths and error conditions
+  - Batch processing logic verification
+
+### 📋 Enhanced Menu System
+- **Dual Commands**: Both single and batch conversion available in context menu
+- **VSCode Integration**: Improved command registration and menu organization
+- **Better UX**: Cleaner progress reporting without fake progress values
+
+### 🏗️ Architecture Improvements
+- **Clean Separation**: Maintained single-responsibility principle across modules
+- **Backwards Compatibility**: All existing functionality preserved (Never break userspace)
+- **Production Ready**: Professional-grade code quality with full test protection
+
+### 🔄 Future-Proof Foundation
+- Established comprehensive testing pipeline
+- Created extensible batch processing architecture  
+- Implemented robust error handling patterns
+
 ## [0.0.9] - 2025-08-04
 
 ### 🐛 Fixed
