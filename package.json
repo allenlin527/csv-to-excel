@@ -41,22 +41,12 @@
         "command": "csvToExcel.convert",
         "title": "Convert to Excel",
         "category": "CSV to Excel"
-      },
-      {
-        "command": "csvToExcel.batchConvert",
-        "title": "Convert Multiple CSV to Excel",
-        "category": "CSV to Excel"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "csvToExcel.convert",
-          "when": "resourceExtname == .csv",
-          "group": "2_workspace"
-        },
-        {
-          "command": "csvToExcel.batchConvert",
           "when": "resourceExtname == .csv",
           "group": "2_workspace"
         }
