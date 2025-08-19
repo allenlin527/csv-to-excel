@@ -21,8 +21,8 @@ export class CsvParser {
     /**
      * 偵測檔案編碼
      */
-    private detectEncoding(filePath: string): string {
-        const buffer = fs.readFileSync(filePath);
+    private async detectEncoding(filePath: string): Promise<string> {
+        const buffer = await fs.promises.readFile(filePath);
         const detected = chardet.detect(buffer);
         return detected || 'utf8';
     }
@@ -69,10 +69,10 @@ export class CsvParser {
             }
 
             // 偵測編碼
-            const encoding = options.encoding || this.detectEncoding(filePath);
+            const encoding = options.encoding || await this.detectEncoding(filePath);
             
             // 讀取檔案內容
-            const buffer = fs.readFileSync(filePath);
+            const buffer = await fs.promises.readFile(filePath);
             const content = iconv.decode(buffer, encoding);
             
             // 檢查檔案是否為空
@@ -115,8 +115,7 @@ export class CsvParser {
             };
             
         } catch (error) {
-            const errorMessage = error instanceof Error ? error.message : String(error);
-            throw new Error(`Failed to parse CSV file '${filePath}': ${errorMessage}`);
+            throw new Error(`Failed to parse CSV file '${filePath}': ${error}`);
         }
     }
 

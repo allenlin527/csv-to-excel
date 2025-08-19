@@ -88,32 +88,4 @@ export class ExcelGenerator {
         return path.join(dir, `${basename}.xlsx`);
     }
     
-    /**
-     * 格式化儲存格資料
-     */
-    private formatCellValue(value: any): any {
-        if (value === null || value === undefined || value === '') {
-            return '';
-        }
-        
-        // 數字檢查
-        if (!isNaN(value) && !isNaN(parseFloat(value))) {
-            return parseFloat(value);
-        }
-        
-        // 日期檢查
-        const dateValue = new Date(value);
-        if (!isNaN(dateValue.getTime()) && typeof value === 'string' && value.match(/^\d{4}-\d{2}-\d{2}/)) {
-            return dateValue;
-        }
-        
-        // 布林值檢查
-        if (typeof value === 'string') {
-            const lowerValue = value.toLowerCase();
-            if (lowerValue === 'true') return true;
-            if (lowerValue === 'false') return false;
-        }
-        
-        return value.toString();
-    }
 }

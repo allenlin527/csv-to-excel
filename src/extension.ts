@@ -23,20 +23,16 @@ export function activate(context: vscode.ExtensionContext) {
                 title: "Converting CSV to Excel",
                 cancellable: false
             }, async (progress) => {
-                
-                progress.report({ increment: 0, message: "Reading CSV file..." });
+                progress.report({ increment: 0, message: "Processing..." });
                 
                 // 解析CSV
                 const csvResult = await csvParser.parseCsv(uri.fsPath);
-                
-                progress.report({ increment: 50, message: "Generating Excel file..." });
+                progress.report({ increment: 50 });
                 
                 // 生成Excel
                 outputPath = await excelGenerator.generateExcel(csvResult, uri.fsPath);
+                progress.report({ increment: 100 });
                 
-                progress.report({ increment: 100, message: "Conversion completed!" });
-                
-                // 短暫延遲讓用戶看到完成訊息，然後自動關閉進度
                 await new Promise(resolve => setTimeout(resolve, 500));
             });
             
@@ -51,9 +47,76 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
     
-    // 註冊批次轉換命令 (未來功能)
-    const batchConvertCommand = vscode.commands.registerCommand('csvToExcel.batchConvert', async (uri: vscode.Uri) => {
-        vscode.window.showInformationMessage('Batch conversion feature coming soon!');
+    // 註冊批次轉換命令
+    const batchConvertCommand = vscode.commands.registerCommand('csvToExcel.batchConvert', async (uri: vscode.Uri, allUris: vscode.Uri[]) => {
+        try {
+            // 取得所有CSV檔案
+            const csvFiles = allUris.filter(u => csvParser.validateCsvFile(u.fsPath));
+            
+            if (csvFiles.length === 0) {
+                vscode.window.showErrorMessage('No valid CSV files selected.');
+                return;
+            }
+
+            // 批次轉換結果
+            const results = {
+                successful: [] as string[],
+                failed: [] as string[]
+            };
+
+            // 顯示進度並執行批次轉換
+            await vscode.window.withProgress({
+                location: vscode.ProgressLocation.Notification,
+                title: `Converting ${csvFiles.length} CSV files to Excel`,
+                cancellable: false
+            }, async (progress) => {
+                const total = csvFiles.length;
+                
+                for (let i = 0; i < csvFiles.length; i++) {
+                    const file = csvFiles[i];
+                    const fileName = path.basename(file.fsPath);
+                    
+                    progress.report({ 
+                        increment: (100 / total),
+                        message: `Converting ${fileName} (${i + 1}/${total})` 
+                    });
+
+                    try {
+                        // 解析CSV
+                        const csvResult = await csvParser.parseCsv(file.fsPath);
+                        
+                        // 生成Excel
+                        const outputPath = await excelGenerator.generateExcel(csvResult, file.fsPath);
+                        results.successful.push(path.basename(outputPath));
+                    } catch (error) {
+                        results.failed.push(`${fileName}: ${error}`);
+                    }
+                }
+
+                await new Promise(resolve => setTimeout(resolve, 500));
+            });
+
+            // 顯示結果
+            const successCount = results.successful.length;
+            const failedCount = results.failed.length;
+            
+            if (failedCount === 0) {
+                vscode.window.setStatusBarMessage(
+                    `✅ Successfully converted ${successCount} CSV files to Excel`,
+                    3000
+                );
+            } else {
+                const message = `Batch conversion completed: ${successCount} successful, ${failedCount} failed`;
+                vscode.window.showWarningMessage(message);
+                
+                if (failedCount > 0) {
+                    console.error('Failed conversions:', results.failed);
+                }
+            }
+
+        } catch (error) {
+            vscode.window.showErrorMessage(`Batch conversion failed: ${error}`);
+        }
     });
     
     context.subscriptions.push(convertCommand, batchConvertCommand);
