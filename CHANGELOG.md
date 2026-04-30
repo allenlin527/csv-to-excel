@@ -5,6 +5,19 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2026-04-30
+
+### 🐛 Bug Fixes
+- **Quoted CSV Headers**: Fixed an issue where CSV files with fully-quoted headers (e.g. `"Name","Age","City"`) produced Excel files containing only headers with no data rows
+- **Root Cause**: `csvParser.ts` extracted raw headers without stripping surrounding `"` quotes, causing key mismatch with `csvtojson`'s parsed data rows (where quotes are stripped automatically)
+- **Affected Use Case**: CSV exports from tools like Oracle SQL Developer that wrap all fields in quotes
+
+### 🧪 Testing
+- Added regression test for quoted-header CSV parsing in `test/csvParser.test.ts`
+
+### 🙏 Contributors
+- Thanks to [@gudnithor](https://github.com/gudnithor) for reporting and fixing this issue ([#3](https://github.com/allenlin527/csv-to-excel/pull/3))
+
 ## [0.1.1] - 2025-08-19
 
 ### 🔧 User Experience Improvements
