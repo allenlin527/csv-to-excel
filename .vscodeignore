@@ -8,9 +8,15 @@ test-data/
 
 # Development files
 .vscode/
+.github/
 tsconfig.json
 .git/
 .gitignore
+
+# Test & coverage
+test/
+coverage/
+jest.config.js
 
 # Build artifacts
 **/*.map
