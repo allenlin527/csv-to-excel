@@ -101,11 +101,10 @@ export class CsvParser {
                     : trimmed;
             });
 
-            // 驗證標題與解析結果一致性
+            // 標題以原始標題行為準：保留使用者宣告的所有欄位
+            // （包含尾端空欄位，例如 Excel 存檔時省略 trailing comma 的情況）
             const parsedHeaders = jsonArray.length > 0 ? Object.keys(jsonArray[0]) : [];
-
-            // 使用原始標題以確保點號等特殊字元不被修改
-            const headers = rawHeaders.length === parsedHeaders.length ? rawHeaders : parsedHeaders;
+            const headers = rawHeaders.length > 0 ? rawHeaders : parsedHeaders;
 
             // 檢查是否有資料
             if (jsonArray.length === 0) {

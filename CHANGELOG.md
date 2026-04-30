@@ -5,6 +5,19 @@ All notable changes to the "CSV to Excel Converter" extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2026-04-30
+
+### 🐛 Bug Fixes
+- **Trailing Empty Columns Preserved** ([#2](https://github.com/allenlin527/csv-to-excel/issues/2)): Fixed an issue where CSV files with trailing empty columns lost those header columns in the converted Excel file. This commonly affected CSV files exported from Excel, which omits trailing empty cells (no trailing comma) — e.g. header `test1,test2` with data row `a` would drop the `test2` column entirely
+- **Root Cause**: When the data row had fewer columns than the header line, `csvParser.ts` fell back to keys parsed from the data, losing trailing headers. Fix: always trust the header line as the authoritative source of column definitions
+
+### 🧪 Testing
+- Added regression test for trailing-empty-columns scenario (`test/csvParser.test.ts`)
+- Updated headers-only test to reflect corrected header preservation behavior
+
+### 🙏 Contributors
+- Thanks to [@anthonychan1324](https://github.com/anthonychan1324) for reporting this issue
+
 ## [0.1.2] - 2026-04-30
 
 ### 🐛 Bug Fixes

@@ -113,7 +113,7 @@ describe('CsvParser', () => {
             const result = await csvParser.parseCsv(testFile);
             
             expect(result.data).toHaveLength(0);
-            expect(result.headers).toEqual([]); // parsedHeaders is empty when no data rows
+            expect(result.headers).toEqual(['Name', 'Age']); // headers preserved from header line even without data
             expect(consoleSpy).toHaveBeenCalledWith('Warning: CSV file contains headers but no data rows');
             
             consoleSpy.mockRestore();
@@ -138,6 +138,27 @@ describe('CsvParser', () => {
             expect(result.data[0]['Name']).toBe('Alice');
             expect(result.data[0]['Age']).toBe(30);
             expect(result.data[1]['Name']).toBe('Bob');
+
+            // Cleanup
+            if (fs.existsSync(testFile)) fs.unlinkSync(testFile);
+        });
+
+        it('should preserve trailing empty columns when data rows omit them (issue #2)', async () => {
+            const tempDir = path.join(__dirname, '../temp');
+            if (!fs.existsSync(tempDir)) {
+                fs.mkdirSync(tempDir);
+            }
+
+            // Excel often strips trailing empty cells when saving as CSV,
+            // producing data rows with fewer columns than the header line.
+            const testFile = path.join(tempDir, 'trailing-empty-columns.csv');
+            fs.writeFileSync(testFile, 'test1,test2\na');
+
+            const result = await csvParser.parseCsv(testFile);
+
+            expect(result.headers).toEqual(['test1', 'test2']);
+            expect(result.data).toHaveLength(1);
+            expect(result.data[0]['test1']).toBe('a');
 
             // Cleanup
             if (fs.existsSync(testFile)) fs.unlinkSync(testFile);
