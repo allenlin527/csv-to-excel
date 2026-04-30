@@ -122,6 +122,27 @@ describe('CsvParser', () => {
             if (fs.existsSync(testFile)) fs.unlinkSync(testFile);
         });
 
+        it('should strip quotes from quoted headers and return data rows', async () => {
+            const tempDir = path.join(__dirname, '../temp');
+            if (!fs.existsSync(tempDir)) {
+                fs.mkdirSync(tempDir);
+            }
+
+            const testFile = path.join(tempDir, 'quoted-headers.csv');
+            fs.writeFileSync(testFile, '"Name","Age","City"\n"Alice",30,"Reykjavik"\n"Bob",25,"Akureyri"');
+
+            const result = await csvParser.parseCsv(testFile);
+
+            expect(result.headers).toEqual(['Name', 'Age', 'City']);
+            expect(result.data).toHaveLength(2);
+            expect(result.data[0]['Name']).toBe('Alice');
+            expect(result.data[0]['Age']).toBe(30);
+            expect(result.data[1]['Name']).toBe('Bob');
+
+            // Cleanup
+            if (fs.existsSync(testFile)) fs.unlinkSync(testFile);
+        });
+
         it('should handle encoding detection fallback', async () => {
             const tempDir = path.join(__dirname, '../temp');
             if (!fs.existsSync(tempDir)) {
